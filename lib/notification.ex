@@ -9,11 +9,15 @@ defmodule WaterEx.Notification do
   end
 
   defp get_sound_path do
-    Path.expand(".", "priv/water.ogg")
+    get_priv_file("water.ogg")
   end
 
   defp get_image_path do
-    Path.expand(".", "priv/water.jpg")
+    get_priv_file("water.jpg")
+  end
+
+  defp get_priv_file(file) do
+    Path.join(:code.priv_dir(:water_ex), file)
   end
 
   defp execute_command(command) do
